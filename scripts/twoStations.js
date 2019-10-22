@@ -1,6 +1,8 @@
 
 
 
+//Henkilön syöttämät asemat:
+
 $('#buttonForSearch').on('click', function()
 
 {
@@ -25,6 +27,12 @@ $('#buttonForSearch').on('click', function()
 }
 
 );
+
+
+//Tietojen nouto palvelimelta:
+
+var xhr = new XMLHttpRequest();
+
 
 
 
