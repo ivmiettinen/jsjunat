@@ -11,7 +11,7 @@ Web Front-End: Junat sivulla
   * Lähimmän aseman selvittäminen paikkatiedon perusteella  
   * Kulussa olevien junien haku:  
     * kahden aseman väli  
-    * paikkatieto ( lähimmät asemat ja lähimmät junat
+    * paikkatieto (lähimmät asemat ja lähimmät junat)
     * Yhden aseman perusteella listalta (esim. Helsingistä lähteneet)  
 * https://rata.digitraffic.fi/  
 * http://digitraffic.liikennevirasto.fi  
