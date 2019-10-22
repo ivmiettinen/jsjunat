@@ -1,3 +1,4 @@
+
 var selectedTrain = 1; // train number
 var info1 = document.getElementById('trainNo');
 var info2 = document.getElementById('category');
@@ -10,7 +11,7 @@ var optiot = { hour: '2-digit', minute: '2-digit', hour12: false };
 
 $.get("https://rata.digitraffic.fi/api/v1/trains/2017-01-01/" + selectedTrain + "/", function (data) {
     $(".result").html(data);
-    console.log("Load successful");
+    console.log("Load 'train info' successful");
     console.dir(data);
     var jsonData = data;
     var trainNo = jsonData[0].trainNumber;
@@ -21,7 +22,7 @@ $.get("https://rata.digitraffic.fi/api/v1/trains/2017-01-01/" + selectedTrain + 
     var dest = jsonData[0].timeTableRows[lastSta].stationShortCode; // LAST STATION
     var depTime = new Date(jsonData[0].timeTableRows[0].scheduledTime).toLocaleTimeString('fi', optiot);
     var arrTime = new Date(jsonData[0].timeTableRows[lastSta].scheduledTime).toLocaleTimeString('fi', optiot);
-    
+
     info1.innerText = `Train number: ${trainNo}`;
     info2.innerText = `Train Category: ${category}`;
     info3.innerText = `Train Type: ${type}`;
@@ -30,3 +31,4 @@ $.get("https://rata.digitraffic.fi/api/v1/trains/2017-01-01/" + selectedTrain + 
     info6.innerText = `Destination: ${dest}`;
     info7.innerText = `Arrival Time: ${arrTime}`;
 });
+
