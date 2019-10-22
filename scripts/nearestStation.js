@@ -1,5 +1,1 @@
-$(function(){
-   junaData("TPE", "HKI");
 
-})
- 
