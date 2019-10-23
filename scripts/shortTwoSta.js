@@ -27,7 +27,7 @@ $('#buttonForSearch').on('click', function () {
         }),
         success: function () {
             junaData(depSta, destSta, function (nextTrainsArr) {
-                for (i = 0; i < nextTrainsArr.length; i++) {
+                for (i = 0; i < 20; i++) {
                     var liElement = document.createElement('li');
 
                     var trainNumber = nextTrainsArr[i].trainNumber;
@@ -37,7 +37,7 @@ $('#buttonForSearch').on('click', function () {
                     var depTime = new Date(nextTrainsArr[i].timeTableRows[0].scheduledTime).toLocaleTimeString('fi', optiot); //muuta myöhemmin
                     var arrTime = new Date(nextTrainsArr[i].timeTableRows[lastSta].scheduledTime).toLocaleTimeString('fi', optiot);
 
-                    var text = document.createTextNode(`Commuter: ${trainNumber}, Lähtee: ${depTime} ------ Pääteasema: ${dest}, Saapuu: ${arrTime}`);
+                    var text = document.createTextNode(`Junan numero: ${trainNumber}, Päivä: ${depDate}, Lähtöaika: ${depTime} ------ Pääteasema: ${dest}, Saapumisaika: ${arrTime}`);
                     liElement.appendChild(text);
                     document.getElementById('nextTrains').appendChild(liElement);
                 }
