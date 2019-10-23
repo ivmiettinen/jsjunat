@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JS-junat</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <h1>Junan haku kahdella asemalla</h1>
+
+    <div>
+        <p>Mistä: <input type="text" placeholder="Syötä lähtöasema" id="start" /></p>
+        <p>Mihin: <input type="text" placeholder="Syötä pääteasema" id="end" /></p>
+
+        <p><button id="buttonForSearch" type="button">Hae</button></p>
+        <ol id='nextTrains'></ol>
+
+    </div>
+
+    <script src="../scripts/get.js"></script>
+    <script src="../scripts/stations.js"></script>
+    <script src="../scripts/shortTwoSta.js"></script>
+
+</body>
+
+</html>
