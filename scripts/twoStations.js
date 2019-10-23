@@ -22,21 +22,23 @@ $('#buttonForSearch').on('click', function () {
             var depTime = new Date(nextTrainsArr[i].timeTableRows[0].scheduledTime).toLocaleTimeString('fi',optiot); //muuta myöhemmin
             var arrTime = new Date(nextTrainsArr[i].timeTableRows[lastSta].scheduledTime).toLocaleTimeString('fi', optiot);
             
-            //stations between:
+            //stations between main stations:
             var trs=nextTrainsArr[i].timeTableRows;
             var tempstr = "";
+            
 
            
 
             for (var tr of trs){
                 tempstr+=tr.stationShortCode +", ";
+                var howManyStations = tempstr.length;
             }
             
             //Muutetaan array
             //var parserointi = parseInt(tempstr);
             
 
-            var text = document.createTextNode(`Commuter: ${trainNumber}, Lähtöasema: ${lahtoasema}, Lähtee: ${depTime}, Väliasemat: ${tempstr.length},
+            var text = document.createTextNode(`Commuter: ${trainNumber}, Lähtöasema: ${lahtoasema}, Lähtee: ${depTime}, Väliasemat: ${howManyStations},
             ------ Pääteasema: ${dest}, Saapuu: ${arrTime}, `);
             liElement.appendChild(text);
             document.getElementById('nextTrains').appendChild(liElement);

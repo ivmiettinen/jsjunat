@@ -12,6 +12,19 @@ navigator.geolocation.getCurrentPosition(function(position) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+  
+
+
 //Geolokaatio koordinaatteina:
 
 var x = document.getElementById("geolocation");
