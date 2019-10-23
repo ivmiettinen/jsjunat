@@ -96,40 +96,6 @@ $(function(){
        
            
 })
-//form functionality and validation
-// $(function(){
-//    formFunction();
-//      function formFunction(form){
-//          form = document.getElementById('login-input');
-//          form.addEventListener('submit', sendSubmit);
-//      }
-//      function sendSubmit(e){
-//          e.preventDefault();
-
-//          const {
-//              username, password, login_type, result
-//          } = event.target;
-//          const handleUser = login_type.value == "register" ? registerUser: loginUser;
-//          const reaction = handleUser(username.value, password.value);
-//          result.innerHTML = reaction;
-//      }
-//      function registerUser(username, password){
-//          localStorage.setItem("USERNAME", username);
-//          localStorage.setItem("PASSWORD", password);
-//          return `Uusi käyttäjä ${username} on nyt rekisteröity`;
-//      }
-//      function loginUser (username, password){
-//          const registeredUser = localStorage.getItem("USERNAME");
-//          const registeredPassword = localStorage.getItem("PASSWORD");
-
-//          const validUser = username == registeredUser;
-//          const validPassword = password == registeredPassword;
-//          if(validUser && validPassword){return `Tervetuloa takaisin ${username} !`;}
-//          else if(!validUser) {return `Käyttäjää ${username} ei ole rekisteröity`}
-//          else if(!validPassword) {return `Väärä salasana käyttäjälle ${username}`}
-//      } 
-// })
-
 $(function(){
     formFunction();
       function formFunction(form){
@@ -154,18 +120,24 @@ $(function(){
       }
       function loginUser (username, password){
          
-          const userdata=JSON.parse(localStorage.getItem("test"));
+          const userdata=JSON.parse(localStorage.getItem(username));
+          var userCheck = userdata;
+          if(userCheck === null){
+              return `Käyttäjää ${username} ei ole rekisteröity`;
+          }
+          else{
           const user=userdata.find(function(u){
               return u.id===username
           })
-           const registeredUser = user.details.id;
+           const registeredUser = user.details.username;
           const registeredPassword = user.details.password;
           console.dir(user);
           const validUser = user.details.username == registeredUser;
-          const validPassword = user.details.password == registeredPassword;
+          const validPassword = password == registeredPassword;
           if(validUser && validPassword){return `Tervetuloa takaisin ${username} !`;}
-          else if(!validUser) {return `Käyttäjää ${username} ei ole rekisteröity`}
+         
           else if(!validPassword) {return `Väärä salasana käyttäjälle ${username}`}
+        }
       } 
  })
 
