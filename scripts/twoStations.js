@@ -1,7 +1,7 @@
 
 
 
-//Henkilön syöttämät asemat:
+//Henkilön syöttämät
 
 $('#buttonForSearch').on('click', function()
 
