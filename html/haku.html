@@ -6,7 +6,7 @@
     <title>JS-junat</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="../styles/table.css">
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 </head>
@@ -16,11 +16,23 @@
     <h1>Junan haku kahdella asemalla</h1>
 
     <div>
-        <p>Mistä: <input type="text" placeholder="Syötä lähtöasema" id="start" value="Helsinki"/></p>
-        <p>Mihin: <input type="text" placeholder="Syötä pääteasema" id="end" value="Tampere"/></p>
+        <p>Mistä: <input type="text" placeholder="Syötä lähtöasema" id="start" value="Helsinki" /></p>
+        <p>Mihin: <input type="text" placeholder="Syötä pääteasema" id="end" value="Tampere" /></p>
 
         <p><button id="buttonForSearch" type="button">Hae</button></p>
         <ol id='nextTrains'></ol>
+        <h3 id="result"></h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Junan tiedot</th>
+                    <th>Junan numero</th>
+                    <th>Lähtöaika</th>
+                    <th>Saapumisaika</th>
+                </tr>
+            </thead>
+            <tbody id="schedule"></tbody>
+        </table>
 
     </div>
 
