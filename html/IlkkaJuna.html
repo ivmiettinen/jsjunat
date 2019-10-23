@@ -19,16 +19,19 @@
 
     <div>
         <p>Mistä: <input type="text" placeholder="Syötä lähtöasema" id="start" /></p>
+        <br>
         <p>Mihin: <input type="text" placeholder="Syötä pääteasema" id="end" /></p>
 
         <p><button id="buttonForSearch" type="button">Hae</button></p>
-
+        <ol id='nextTrains'></ol>
 
     </div>
 
 
+   <p></p>
    
-
+   <button onclick="getLocation()">Sijaintisi koordinaatteina</button>
+   <div id="geolocation"></div>
   
  
 
@@ -37,6 +40,7 @@
        
     <script src="../scripts/get.js"></script>
     <script src="../scripts/twoStations.js"></script>
+    <script src="../scripts/nearestStation.js"></script>
 
 
 </body>
