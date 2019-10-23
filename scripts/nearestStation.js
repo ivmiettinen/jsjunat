@@ -5,7 +5,7 @@ navigator.geolocation.getCurrentPosition(function (position) {
     console.log('Geolocation permissions granted');
     console.log('Latitude:' + position.coords.latitude);
     console.log('Longitude:' + position.coords.longitude);
-    haeLahinAsema(position.coords.latitude, position.coords.longitude)
+    findOutTheClosestStation(position.coords.latitude, position.coords.longitude)
 });
 
 
@@ -13,42 +13,44 @@ navigator.geolocation.getCurrentPosition(function (position) {
 
 
 
-function haeLahinAsema(lat, long, callback) {
+function findOutTheClosestStation(lat, long) {
     $.get("https://rata.digitraffic.fi/api/v1/metadata/stations", function (data) {
         console.dir(data);
-        var lahinasema;
-        var lyhinetaisyys = 1000000;
-        for (let asema of data) {
-            let etaisyys = getDistanceFromLatLonInKm(lat, long, asema.latitude, asema.longitude)
+        var closestStation;
+        var minimumDistance = 1000000;
+        for (let station of data) {
+            let distance = getDistanceFromLatLonInKm(lat, long, station.latitude, station.longitude)
             //console.log(etaisyys);
-            if (etaisyys < lyhinetaisyys) {
-                lyhinetaisyys = etaisyys;
-                lahinasema = asema;
+            if (distance < minimumDistance) {
+                minimumDistance = distance;
+                closestStation = station;
+
+                
             }
+            
         }
-        console.dir(lahinasema);
-        console.log(lyhinetaisyys);
-        callback(data);
+        console.dir(closestStation);
+        console.log(minimumDistance);
+        
+        
 
-        //KESKEN - kaivetaan tieto ulso 
-        var closestStation = lahinasema;
+        //Esitellään lähin juna-asema ja etäisyys sinne:
+        var yourClosestStation = closestStation.stationName;
+        var distanceToClosestStation = minimumDistance;
 
-        var text = document.createTextNode(`Tama:" ${closestStation}`);
-        liElement.appendChild(text);
+
+        var pElement = document.createElement('p');
+
+        var text = document.createTextNode(`Sinun lähin juna-asemasi on:  ${yourClosestStation} . Etäisyytesi sinne on ${distanceToClosestStation} kilometriä. `);
+        pElement.appendChild(text);
+        document.getElementById('nearestStation').appendChild(pElement);
 
     });
 }
 
 
 
-
-
-
-
-
-
-
-//Funktio, joka selvittää etäisyyden. Kaksi eri leveys- ja pituusastetta on verrattuna toisiinsa:
+//Funktio, joka laskee etäisyyden. Kaksi eri leveys- ja pituusastetta on verrattuna toisiinsa:
 
 function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
     var R = 6371; // Radius of the earth in km
@@ -67,31 +69,6 @@ function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
 function deg2rad(deg) {
     return deg * (Math.PI / 180)
 }
-
-
-
-
-
-/*
-
-$('#buttonForSearch').on('click', function geolocationData(callback){
-    
-    
-    $.get("https://rata.digitraffic.fi/api/v1/train-locations/latest/"+location+"", function(data) {
-        $(".result").html(data);
-        console.log("Load successful");
-        console.dir(data);
-        callback(data);
-    });
-    
-    }   
-)
-
-
-*/
-
-
-
 
 
 

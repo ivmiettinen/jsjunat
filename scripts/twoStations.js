@@ -22,30 +22,26 @@ $('#buttonForSearch').on('click', function () {
             var depTime = new Date(nextTrainsArr[i].timeTableRows[0].scheduledTime).toLocaleTimeString('fi',optiot); //muuta myöhemmin
             var arrTime = new Date(nextTrainsArr[i].timeTableRows[lastSta].scheduledTime).toLocaleTimeString('fi', optiot);
             
-
+            
             
 
             //stations between main stations:
             var trs=nextTrainsArr[i].timeTableRows;
-            var tempstr = "";
+            var allStationShortCodes = "";
             
 
            
 
             for (var tr of trs){
-                tempstr+=tr.stationShortCode +", ";
-                var howManyStations = trs.length
+                allStationShortCodes+=tr.stationShortCode +", ";
+                var howManyStations = trs.length;
 
             }
-            console.log(tempstr);
+            console.log(allStationShortCodes);
             //Muutetaan array
             //var parserointi = parseInt(tempstr);
             
             
-            
-
-
-
 
 
 
@@ -56,12 +52,7 @@ $('#buttonForSearch').on('click', function () {
         }
         console.log(nextTrainsArr);
     });
-    console.log("ButtonForSearch klik");
-
-    
-
-
-    
+    console.log("ButtonForSearch clicked");
 
 
 
