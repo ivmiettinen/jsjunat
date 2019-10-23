@@ -58,15 +58,44 @@ $(function(){
                 .attr('id', 'reg-span');
     $('<input />')
                 .appendTo('#reg-span')
-                .attr('id', 'reg')
-                .attr('type', 'radio');
+                .attr('id', 'register')
+                .attr('type', 'radio')
+                .attr('name', 'login_type')
+                .attr('value', 'register');
+    $('<label></label>')
+                .appendTo('#reg-span')
+                .attr('for', 'register')
+                .text('Register');
+    $('<span></span>')
+            .appendTo('#field2')
+            .insertAfter('#reg-span')
+            .attr('id', 'login-span');
+    $('<input />')
+            .appendTo('#login-span')
+            .attr('id', 'login')
+            .attr('type', 'radio')
+            .attr('name', 'login_type')
+            .attr('value', 'login');
+    $('<label></label>')
+            .appendTo('#login-span')
+            .attr('for', 'login')
+            .text('Login');
+    $('<input />')
+            .appendTo('#login-input')
+            .insertAfter('#field2')
+            .attr('type', 'submit')
+            .attr('id', 'submit-btn')
+            .attr('value', 'Submit');
+
+    $('<output></output>')
+            .insertAfter("#submit-btn")
+            .attr('name', 'result');
+
+           
 })
-
-
-
-$(function(formFunction){
+window.addEventListener("DOMContentLoaded", formFunction());
      function formFunction(form){
-         form = $('#login-input');
+         form = document.getElementById('login-input');
          form.addEventListener("submit", sendSubmit);
      }
      function sendSubmit(e){
@@ -82,5 +111,20 @@ $(function(formFunction){
      function registerUser(username, password){
          window.localStorage.setItem("USERNAME", username);
          window.localStorage.setItem("PASSWORD", password);
+         return `Uusi käyttäjä ${username} on nyt rekisteröity`;
      }
-})
+     function loginUser (username, password){
+         const registeredUser = window.localStorage.getItem("USERNAME");
+         const registeredPassword = window.localStorage.getItem("PASSWORD");
+
+         const validUser = username == registeredUser;
+         const validPassword = password = registeredPassword;
+         if(validUser && validPassword){
+             return `Tervetuloa takaisin ${username} !`;
+         }
+         else if(!validUser){ return `Käyttäjää ${username} ei ole rekisteröity`}
+         else if(!validPassword){return `Väärä salasana käyttäjälle ${username}`}
+     } 
+
+
+
