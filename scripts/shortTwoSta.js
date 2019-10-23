@@ -1,8 +1,11 @@
 
 var optiot = { hour: '2-digit', minute: '2-digit', hour12: false };
+var options = { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' };
 
 //Henkilön syöttämät asemat:
 $('#buttonForSearch').on('click', function () {
+
+    var scheduleTable = document.getElementById('schedule');
 
     var departure = $('#start').val();
     var arrival = $('#end').val();
@@ -32,28 +35,35 @@ $('#buttonForSearch').on('click', function () {
 
                     for (j = 0; j < nextTrainsArr[i].timeTableRows.length; j++) {
                         if (depSta === nextTrainsArr[i].timeTableRows[j].stationShortCode && nextTrainsArr[i].timeTableRows[j].type === 'DEPARTURE') {
-                            var tdTrainInfo = document.createElement('td');
+                            var tdTrainCateg = document.createElement('td');
+                            var tdTrainType = document.createElement('td');
                             var tdTrainNo = document.createElement('td');
+                            var tdDepDate = document.createElement('td');
                             var tdDepTime = document.createElement('td');
+                            var tdAlert = document.createElement('td');
 
                             var trainCateg = nextTrainsArr[i].trainCategory;
+                            var trainType = nextTrainsArr[i].trainType;
                             var trainNo = nextTrainsArr[i].trainNumber;
+
+                            var depDate = new Date(nextTrainsArr[i].departureDate).toLocaleDateString("fi-FI", options);
 
                             var depTime = new Date(nextTrainsArr[i].timeTableRows[j].scheduledTime).toLocaleTimeString('fi', optiot);
 
+                            var alert = nextTrainsArr[i].timeTableRows[j].cancelled;
 
-
-                            // var depDate = nextTrainsArr[i].departureDate;
-                            // var lastSta = nextTrainsArr[i].timeTableRows.length - 1;
-                            // var dest = nextTrainsArr[i].timeTableRows[lastSta].stationShortCode;
-                            // var depTime = new Date(nextTrainsArr[i].timeTableRows[0].scheduledTime).toLocaleTimeString('fi', optiot); //muuta myöhemmin
-                            // var arrTime = new Date(nextTrainsArr[i].timeTableRows[lastSta].scheduledTime).toLocaleTimeString('fi', optiot);
-
-                            // var text = document.createTextNode(`Junan numero ${trainNumber}, Lähtöaika: ${depTime}`);
-                            // tdTrainNo.appendChild(text);
-                            tdTrainInfo.innerText = (`${trainCateg}`);
+                            tdTrainCateg.innerText = (`${trainCateg}`);
+                            tdTrainType.innerText = (`${trainType}`);
                             tdTrainNo.innerText = (`${trainNo}`);
+                            tdDepDate.innerText = (`${depDate}`);
                             tdDepTime.innerText = (`${depTime}`);
+
+                            // Lisää matka-aika, jos ei ole peruttu!
+                            if (alert === false) {
+                                tdAlert.innerText = '';
+                            } else {
+                                tdAlert.innerText = ('Juna on peruttu');
+                            }
 
                         }
                         if (destSta === nextTrainsArr[i].timeTableRows[j].stationShortCode && nextTrainsArr[i].timeTableRows[j].type === 'ARRIVAL') {
@@ -64,16 +74,23 @@ $('#buttonForSearch').on('click', function () {
 
                         }
                     }
-                    trElement.appendChild(tdTrainInfo);
+                    trElement.appendChild(tdTrainCateg);
+                    trElement.appendChild(tdTrainType);
                     trElement.appendChild(tdTrainNo);
+                    trElement.appendChild(tdDepDate);
                     trElement.appendChild(tdDepTime);
                     trElement.appendChild(tdArrTime);
-                    document.getElementById('schedule').appendChild(trElement);
+                    trElement.appendChild(tdAlert);
+                    scheduleTable.appendChild(trElement);
                 }
                 console.log(nextTrainsArr);
-                var result = document.getElementById('result');
+
+                var result = document.getElementById('twoStations');
                 result.innerText = (`${departure} - ${arrival}`);
             });
+            while (scheduleTable.lastChild) {
+                scheduleTable.removeChild(scheduleTable.lastChild);
+            }
         }
     })
 
