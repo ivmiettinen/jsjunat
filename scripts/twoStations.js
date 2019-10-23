@@ -31,12 +31,20 @@ $('#buttonForSearch').on('click', function () {
 
             for (var tr of trs){
                 tempstr+=tr.stationShortCode +", ";
-                var howManyStations = tempstr.length;
+                var howManyStations = trs.length
+
             }
-            
+            console.log(tempstr);
             //Muutetaan array
             //var parserointi = parseInt(tempstr);
             
+
+            
+
+
+
+
+
 
             var text = document.createTextNode(`Commuter: ${trainNumber}, Lähtöasema: ${lahtoasema}, Lähtee: ${depTime}, Väliasemat: ${howManyStations},
             ------ Pääteasema: ${dest}, Saapuu: ${arrTime}, `);
