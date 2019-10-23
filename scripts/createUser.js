@@ -1,3 +1,4 @@
+//create Login-Form
 $(function(){
     $('<form></form>')
                 .appendTo('body')
@@ -91,12 +92,16 @@ $(function(){
             .insertAfter("#submit-btn")
             .attr('name', 'result');
 
+  
+       
            
 })
-window.addEventListener("DOMContentLoaded", formFunction());
+//form functionality and validation
+$(function(){
+   formFunction();
      function formFunction(form){
          form = document.getElementById('login-input');
-         form.addEventListener("submit", sendSubmit);
+         form.addEventListener('submit', sendSubmit);
      }
      function sendSubmit(e){
          e.preventDefault();
@@ -109,22 +114,22 @@ window.addEventListener("DOMContentLoaded", formFunction());
          result.innerHTML = reaction;
      }
      function registerUser(username, password){
-         window.localStorage.setItem("USERNAME", username);
-         window.localStorage.setItem("PASSWORD", password);
+         localStorage.setItem("USERNAME", username);
+         localStorage.setItem("PASSWORD", password);
          return `Uusi käyttäjä ${username} on nyt rekisteröity`;
      }
      function loginUser (username, password){
-         const registeredUser = window.localStorage.getItem("USERNAME");
-         const registeredPassword = window.localStorage.getItem("PASSWORD");
+         const registeredUser = localStorage.getItem("USERNAME");
+         const registeredPassword = localStorage.getItem("PASSWORD");
 
          const validUser = username == registeredUser;
-         const validPassword = password = registeredPassword;
-         if(validUser && validPassword){
-             return `Tervetuloa takaisin ${username} !`;
-         }
-         else if(!validUser){ return `Käyttäjää ${username} ei ole rekisteröity`}
-         else if(!validPassword){return `Väärä salasana käyttäjälle ${username}`}
+         const validPassword = password == registeredPassword;
+         if(validUser && validPassword){return `Tervetuloa takaisin ${username} !`;}
+         else if(!validUser) {return `Käyttäjää ${username} ei ole rekisteröity`}
+         else if(!validPassword) {return `Väärä salasana käyttäjälle ${username}`}
      } 
+})
+
 
 
 
