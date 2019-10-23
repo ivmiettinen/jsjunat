@@ -15,6 +15,6 @@ function staName(name) {
     });
 }
 
-staName('Lahnaslampi');
+staName('Pihlajavesi');
 staName('Helsinki');
 staName('Kilo');
