@@ -52,7 +52,67 @@ $('#buttonForSearch').on('click', function () {
         }
         console.log(nextTrainsArr);
     });
+<<<<<<< HEAD
     console.log("ButtonForSearch clicked");
+=======
+    console.log("ButtonForSearch klik");
+
+    
+
+
+    
+
+    /*
+    //Toimiva väliasemahaku:
+    var trs=nextTrainsArr[i].timeTableRows;
+            var tempstr="";
+
+           
+
+            for (var tr of trs){
+                tempstr+=tr.stationShortCode +", ";
+            }
+
+
+
+
+
+    //Väliasemat:
+    //stationsBetween {departure, arrival, function (nextTrainsArr) {
+
+    //}
+
+    //var stationsBetween;
+
+
+
+
+    //if (nextTrainsArr[i].trainNumber = 169)
+    
+    //nextTrainsArr[i].stationShortCode;
+
+   // valiAsemat(nextTrainsArr[i].stationShortCode (nextTrainsArr){
+        //for (i=0; i<nextTrainsArr[i].stationShortCode.length; i++)
+
+
+/*
+
+        { 
+            var li = document.createElement('li');
+
+        }
+    }
+
+*/
+
+
+    //     $('<h2></h2>').appendTo('div')
+    //     .text(departure + " " + arrival);  
+
+
+    //     const $nextTrain = $("<li></li>");
+    // $("#nextTrains").append($nextTrain);
+>>>>>>> master
 
 
 
