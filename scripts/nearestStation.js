@@ -34,7 +34,7 @@ function findOutTheClosestStation(lat, long) {
 
 
 
-        //Esitellään lähin juna-asema ja etäisyys sinne. Tuodaan tiedot HTML-puolelle::
+        //Esitellään lähin juna-asema ja etäisyys sinne, tuodaan tietojan HTML-puolelle:
         var yourClosestStation = closestStation.stationName;
         var distanceToClosestStation = minimumDistance.toFixed(2);
 

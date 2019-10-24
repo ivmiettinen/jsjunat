@@ -12,7 +12,7 @@ $('#buttonForSearch').on('click', function () {
 
     var depSta;
     var destSta;
-
+    var trainCounter = 1;
     $.ajax({
         url: staName(departure, arrival, function (staArr) {
             for (i = 0; i < staArr.length; i++) {
@@ -98,7 +98,7 @@ $('#buttonForSearch').on('click', function () {
                     trElement.appendChild(tdArrTime);
                     trElement.appendChild(tdAlert);
                     scheduleTable.appendChild(trElement);
-                }
+                } trainCounter++;
                 console.log(nextTrainsArr);
 
                 var result = document.getElementById('twoStations');
@@ -107,8 +107,9 @@ $('#buttonForSearch').on('click', function () {
             while (scheduleTable.lastChild) {
                 scheduleTable.removeChild(scheduleTable.lastChild);
             }
+            saveSearch(trainCounter);
         }
     })
-
+    
     console.log("ButtonForSearch klik");
 });
