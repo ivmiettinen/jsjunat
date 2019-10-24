@@ -7,6 +7,7 @@ var trainCounter = 0;
 $('#buttonForSearch').on('click', function () {
 
     var scheduleTable = document.getElementById('schedule');
+    var result = document.getElementById('twoStations');
 
     var departure = $('#start').val();
     var arrival = $('#end').val();
@@ -17,22 +18,29 @@ $('#buttonForSearch').on('click', function () {
     $.ajax({
         url: staName(departure, arrival, function (staArr) {
             for (i = 0; i < staArr.length; i++) {
-                if (departure.substring(0, 5) === staArr[i].stationName.substring(0, 5) && staArr[i].passengerTraffic === true) {
+                if (departure === staArr[i].stationName && staArr[i].passengerTraffic === true) {
                     console.log(staArr[i].stationName);
                     console.log(staArr[i].stationShortCode);
                     depSta = staArr[i].stationShortCode;
 
+                    result.innerText = (`${departure} - ${arrival}`);
+
                 }
-                if (arrival.substring(0, 5) === staArr[i].stationName.substring(0, 5) && staArr[i].passengerTraffic === true) {
+                if (arrival === staArr[i].stationName && staArr[i].passengerTraffic === true) {
                     console.log(staArr[i].stationName);
                     console.log(staArr[i].stationShortCode);
                     destSta = staArr[i].stationShortCode;
+
+                    result.innerText = (`${departure} - ${arrival}`);
+                }
+                if (typeof (depSta) === 'undefined' || typeof (destSta) === 'undefined') {
+                    result.innerText = ('Virhe! Haettua asemaa ei löytynyt.');
                 }
             }
         }),
         success: function () {
             junaData(depSta, destSta, function (nextTrainsArr) {
-                
+
                 trainCounter++;
                 saveSearch(trainCounter);
 
@@ -91,7 +99,7 @@ $('#buttonForSearch').on('click', function () {
                             if (alert === false) {
                                 tdAlert.innerText = `${hours} h, ${minutes} min`;
                             } else {
-                                tdAlert.innerText = ('Juna on peruttu');
+                                tdAlert.innerText = ('PERUTTU');
                             }
 
                         }
@@ -106,9 +114,6 @@ $('#buttonForSearch').on('click', function () {
                     scheduleTable.appendChild(trElement);
                 }
                 console.log(nextTrainsArr);
-
-                var result = document.getElementById('twoStations');
-                result.innerText = (`${departure} - ${arrival}`);
 
             });
             while (scheduleTable.lastChild) {
