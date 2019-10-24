@@ -51,6 +51,7 @@ function findOutTheClosestStation(lat, long) {
 
 
 //Funktio, joka laskee etäisyyden. Kaksi eri leveys- ja pituusastetta on verrattuna toisiinsa:
+//
 
 function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
     var R = 6371; // Radius of the earth in km
