@@ -23,68 +23,79 @@
 </head>
 
 <body>
-    <header>
-        <h1>Junan haku kahdella asemalla</h1>
-    </header>
+    <div id="page-container">
+        <div id="content-wrap">
+            <header>
+                <h1>Junan haku kahdella asemalla</h1>
+            </header>
 
-    <div id="searchDiv">
-        <div id="nearestStation"></div>
-        <div>
-            <p>Mistä: <input type="text" placeholder="Syötä lähtöasema" id="start" /></p>
-            <p>Minne: <input type="text" placeholder="Syötä pääteasema" id="end" /></p>
+            <div id="searchDiv">
+                <div id="nearestStation"></div>
+                <div>
+                    <p>Mistä: <input type="text" placeholder="Syötä lähtöasema" id="start" /></p>
+                    <p>Minne: <input type="text" placeholder="Syötä pääteasema" id="end" /></p>
 
-            <p><button id="buttonForSearch" type="button" onclick="showDiv()">Hae</button></p>
-        </div>
-
-        <div id='showLatest'>
-            <div id='output'></div>
-        </div>
-    </div>
-    <div id='loginDiv'>
-        <button type="button" id='loginBtn' class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-            Kirjaudu
-        </button>
-    </div>
-
-
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Rekisteröidy tai Kirjaudu sisään</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <p><button id="buttonForSearch" type="button" onclick="showDiv()">Hae</button></p>
                 </div>
-                <div class="modal-body">
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Sulje</button>
-
+                <div id='showLatest'>
+                    <div id='output'></div>
                 </div>
             </div>
-        </div>
-    </div>
-    <h3 id="twoStations"></h3>
-    <div style="display:none;" id="myTable">
-        <table>
-            <thead>
-                <tr>
-                    <th>Junan tiedot</th>
-                    <th>Junatyyppi</th>
-                    <th>Junan numero</th>
-                    <th>Matkustuspäivä</th>
-                    <th>Lähtöaika</th>
-                    <th>Saapumisaika</th>
-                    <th>Matkustusaika</th>
-                </tr>
-            </thead>
-            <tbody id="schedule"></tbody>
-        </table>
-    </div>
+            <div id='loginDiv'>
+                <button type="button" id='loginBtn' class="btn btn-danger" data-toggle="modal"
+                    data-target="#exampleModal">
+                    Kirjaudu
+                </button>
+            </div>
 
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Rekisteröidy tai Kirjaudu sisään</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Sulje</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3 id="twoStations"></h3>
+            <div style="display:none;" id="myTable">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Junan tiedot</th>
+                            <th>Junatyyppi</th>
+                            <th>Junan numero</th>
+                            <th>Matkustuspäivä</th>
+                            <th>Lähtöaika</th>
+                            <th>Saapumisaika</th>
+                            <th>Matkustusaika</th>
+                        </tr>
+                    </thead>
+                    <tbody id="schedule"></tbody>
+                </table>
+            </div>
+        </div>
+        <footer>
+            <p>'Junan haku kahdella asemalla' by
+                <a target="_blank" href="https://github.com/ivmiettinen">ivmiettinen</a>
+                <a target="_blank" href="https://github.com/keskiviikko">keskiviikko</a>
+                <a target="_blank" href="https://github.com/sormunen">sormunen</a>
+            </p>
+        </footer>
+    </div>
     <script src="../scripts/get.js"></script>
     <script src="../scripts/showLatest.js"></script>
     <script src="../scripts/saveLatest.js"></script>
