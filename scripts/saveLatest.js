@@ -3,7 +3,6 @@ $(function(){
 })
 
 function saveSearch(trainCounter, start, end){
-    trainCounter=1;
     
     console.dir(trainCounter)
     start = $('#start').val();

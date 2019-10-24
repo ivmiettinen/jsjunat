@@ -1,6 +1,7 @@
 
 var optiot = { hour: '2-digit', minute: '2-digit', hour12: false };
 var options = { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' };
+var trainCounter = 0;
 
 //Henkilön syöttämät asemat:
 $('#buttonForSearch').on('click', function () {
@@ -12,7 +13,7 @@ $('#buttonForSearch').on('click', function () {
 
     var depSta;
     var destSta;
-    var trainCounter = 1;
+
     $.ajax({
         url: staName(departure, arrival, function (staArr) {
             for (i = 0; i < staArr.length; i++) {
@@ -20,6 +21,7 @@ $('#buttonForSearch').on('click', function () {
                     console.log(staArr[i].stationName);
                     console.log(staArr[i].stationShortCode);
                     depSta = staArr[i].stationShortCode;
+
                 }
                 if (arrival.substring(0, 5) === staArr[i].stationName.substring(0, 5) && staArr[i].passengerTraffic === true) {
                     console.log(staArr[i].stationName);
@@ -30,6 +32,10 @@ $('#buttonForSearch').on('click', function () {
         }),
         success: function () {
             junaData(depSta, destSta, function (nextTrainsArr) {
+                
+                trainCounter++;
+                saveSearch(trainCounter);
+
                 for (i = 0; i < nextTrainsArr.length; i++) {
                     var trElement = document.createElement('tr');
 
@@ -98,18 +104,19 @@ $('#buttonForSearch').on('click', function () {
                     trElement.appendChild(tdArrTime);
                     trElement.appendChild(tdAlert);
                     scheduleTable.appendChild(trElement);
-                } trainCounter++;
+                }
                 console.log(nextTrainsArr);
 
                 var result = document.getElementById('twoStations');
                 result.innerText = (`${departure} - ${arrival}`);
+
             });
             while (scheduleTable.lastChild) {
                 scheduleTable.removeChild(scheduleTable.lastChild);
             }
-            saveSearch(trainCounter);
+
         }
     })
-    
+
     console.log("ButtonForSearch klik");
 });
