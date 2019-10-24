@@ -18,7 +18,7 @@ $('#buttonForSearch').on('click', function () {
     $.ajax({
         url: staName(departure, arrival, function (staArr) {
             for (i = 0; i < staArr.length; i++) {
-                if (departure === staArr[i].stationName && staArr[i].passengerTraffic === true) {
+                if (departure == staArr[i].stationName.match(/^\S*/g) && staArr[i].passengerTraffic === true) {
                     console.log(staArr[i].stationName);
                     console.log(staArr[i].stationShortCode);
                     depSta = staArr[i].stationShortCode;
@@ -26,7 +26,7 @@ $('#buttonForSearch').on('click', function () {
                     result.innerText = (`${departure} - ${arrival}`);
 
                 }
-                if (arrival === staArr[i].stationName && staArr[i].passengerTraffic === true) {
+                if (arrival == staArr[i].stationName.match(/^\S*/g) && staArr[i].passengerTraffic === true) {
                     console.log(staArr[i].stationName);
                     console.log(staArr[i].stationShortCode);
                     destSta = staArr[i].stationShortCode;
