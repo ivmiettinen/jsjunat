@@ -20,6 +20,9 @@ $('#buttonForSearch').on('click', function () {
             var depTime = new Date(nextTrainsArr[i].timeTableRows[0].scheduledTime).toLocaleTimeString('fi',optiot); //muuta myöhemmin
             var arrTime = new Date(nextTrainsArr[i].timeTableRows[lastSta].scheduledTime).toLocaleTimeString('fi', optiot);
             
+            
+            
+
             //stations between main stations:
             var trs=nextTrainsArr[i].timeTableRows;
             var allStationShortCodes = "";
@@ -32,6 +35,14 @@ $('#buttonForSearch').on('click', function () {
             console.log(allStationShortCodes);
             //Muutetaan array
             //var parserointi = parseInt(tempstr);
+<<<<<<< HEAD:scripts/twoStations.js
+            
+            
+
+
+
+=======
+>>>>>>> a90a7527a43d105ff4c84692dd9712489a45e487:scripts/arkisto/twoStations.js
             var text = document.createTextNode(`Commuter: ${trainNumber}, Lähtöasema: ${lahtoasema}, Lähtee: ${depTime}, Väliasemat: ${howManyStations},
             ------ Pääteasema: ${dest}, Saapuu: ${arrTime}, `);
             liElement.appendChild(text);
@@ -39,7 +50,76 @@ $('#buttonForSearch').on('click', function () {
         }
         console.log(nextTrainsArr);
     });
+<<<<<<< HEAD:scripts/twoStations.js
+<<<<<<< HEAD
     console.log("ButtonForSearch clicked");
+=======
+    console.log("ButtonForSearch klik");
+
+    
+
+
+    
+
+    /*
+    //Toimiva väliasemahaku:
+    var trs=nextTrainsArr[i].timeTableRows;
+            var tempstr="";
+
+           
+
+            for (var tr of trs){
+                tempstr+=tr.stationShortCode +", ";
+            }
+
+
+
+
+
+    //Väliasemat:
+    //stationsBetween {departure, arrival, function (nextTrainsArr) {
+
+    //}
+
+    //var stationsBetween;
+
+
+
+
+    //if (nextTrainsArr[i].trainNumber = 169)
+    
+    //nextTrainsArr[i].stationShortCode;
+
+   // valiAsemat(nextTrainsArr[i].stationShortCode (nextTrainsArr){
+        //for (i=0; i<nextTrainsArr[i].stationShortCode.length; i++)
+
+
+/*
+
+        { 
+            var li = document.createElement('li');
+
+        }
+    }
+
+*/
+
+
+    //     $('<h2></h2>').appendTo('div')
+    //     .text(departure + " " + arrival);  
+
+
+    //     const $nextTrain = $("<li></li>");
+    // $("#nextTrains").append($nextTrain);
+>>>>>>> master
+
+
+
+
+}
+=======
+    console.log("ButtonForSearch clicked");
+>>>>>>> a90a7527a43d105ff4c84692dd9712489a45e487:scripts/arkisto/twoStations.js
 
 });
 

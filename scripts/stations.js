@@ -8,3 +8,7 @@ function staName(dep, dest, callback) {
         callback(data);
     });
 }
+
+staName('Pihlajavesi');
+staName('Helsinki');
+staName('Kilo');

@@ -3,6 +3,10 @@ var optiot = { hour: '2-digit', minute: '2-digit', hour12: false };
 var options = { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' };
 var trainCounter = 0;
 
+function showDiv() {
+    document.getElementById('myTable').style.display = "block";
+ }
+
 //Henkilön syöttämät asemat:
 $('#buttonForSearch').on('click', function () {
 

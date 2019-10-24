@@ -1,5 +1,5 @@
 
-//Käyttäjän geolokaatio: 
+//Geolocation:
 
 navigator.geolocation.getCurrentPosition(function (position) {
     console.log('Geolocation permissions granted');
@@ -9,7 +9,7 @@ navigator.geolocation.getCurrentPosition(function (position) {
 });
 
 
-//Käyttäjää lähimpänä olevan aseman haku:  
+//Closest station:
 
 
 
@@ -34,7 +34,7 @@ function findOutTheClosestStation(lat, long) {
 
 
 
-        //Esitellään lähin juna-asema ja etäisyys sinne. Tuodaan tiedot HTML-puolelle:
+        //Esitellään lähin juna-asema ja etäisyys sinne, tuodaan tietojan HTML-puolelle:
         var yourClosestStation = closestStation.stationName;
         var distanceToClosestStation = minimumDistance.toFixed(2);
 
@@ -46,7 +46,7 @@ function findOutTheClosestStation(lat, long) {
 
         var pElement = document.createElement('p');
 
-        var text = document.createTextNode(`Sinun lähin juna-asemasi on:  ${yourClosestStation}. Etäisyys sinne on ${distanceToClosestStation} kilometriä. `);
+        var text = document.createTextNode(`Lähin juna-asemasi on:  ${yourClosestStation}. Etäisyys sinne on ${distanceToClosestStation} kilometriä. `);
         pElement.appendChild(text);
         document.getElementById('nearestStation').appendChild(pElement);
 
@@ -55,7 +55,7 @@ function findOutTheClosestStation(lat, long) {
 
 
 
-//Funktio, joka laskee etäisyyden. Kaksi eri leveys- ja pituusastetta on verrattuna toisiinsa:
+//Function for calculating distance:
 
 function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
     var R = 6371; // Radius of the earth in km
