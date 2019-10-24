@@ -12,26 +12,30 @@ $('#buttonForSearch').on('click', function () {
     var departure = $('#start').val();
     var arrival = $('#end').val();
 
+    var trueDepSta;
+    var trueDestSta;
     var depSta;
     var destSta;
 
     $.ajax({
         url: staName(departure, arrival, function (staArr) {
             for (i = 0; i < staArr.length; i++) {
-                if (departure == staArr[i].stationName.match(/^\S*/g) && staArr[i].passengerTraffic === true) {
+                if ((departure === staArr[i].stationName || departure == staArr[i].stationName.match(/^\S*/g)) && staArr[i].passengerTraffic === true) {
                     console.log(staArr[i].stationName);
                     console.log(staArr[i].stationShortCode);
+                    trueDepSta = staArr[i].stationName;
                     depSta = staArr[i].stationShortCode;
 
-                    result.innerText = (`${departure} - ${arrival}`);
+                    result.innerText = (`${trueDepSta} - ${trueDestSta}`);
 
                 }
-                if (arrival == staArr[i].stationName.match(/^\S*/g) && staArr[i].passengerTraffic === true) {
+                if ((arrival === staArr[i].stationName || arrival == staArr[i].stationName.match(/^\S*/g)) && staArr[i].passengerTraffic === true) {
                     console.log(staArr[i].stationName);
                     console.log(staArr[i].stationShortCode);
+                    trueDestSta = staArr[i].stationName;
                     destSta = staArr[i].stationShortCode;
 
-                    result.innerText = (`${departure} - ${arrival}`);
+                    result.innerText = (`${trueDepSta} - ${trueDestSta}`);
                 }
                 if (typeof (depSta) === 'undefined' || typeof (destSta) === 'undefined') {
                     result.innerText = ('Virhe! Haettua asemaa ei löytynyt.');
