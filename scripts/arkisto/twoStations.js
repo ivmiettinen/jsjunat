@@ -1,8 +1,6 @@
 
 var optiot = {hour: '2-digit', minute:'2-digit', hour12: false};
 
-
-
 $('#buttonForSearch').on('click', function () {
 
     var departure = $('#start').val();
@@ -22,16 +20,10 @@ $('#buttonForSearch').on('click', function () {
             var depTime = new Date(nextTrainsArr[i].timeTableRows[0].scheduledTime).toLocaleTimeString('fi',optiot); //muuta myöhemmin
             var arrTime = new Date(nextTrainsArr[i].timeTableRows[lastSta].scheduledTime).toLocaleTimeString('fi', optiot);
             
-            
-            
-
             //stations between main stations:
             var trs=nextTrainsArr[i].timeTableRows;
             var allStationShortCodes = "";
             
-
-           
-
             for (var tr of trs){
                 allStationShortCodes+=tr.stationShortCode +", ";
                 var howManyStations = trs.length;
@@ -40,11 +32,6 @@ $('#buttonForSearch').on('click', function () {
             console.log(allStationShortCodes);
             //Muutetaan array
             //var parserointi = parseInt(tempstr);
-            
-            
-
-
-
             var text = document.createTextNode(`Commuter: ${trainNumber}, Lähtöasema: ${lahtoasema}, Lähtee: ${depTime}, Väliasemat: ${howManyStations},
             ------ Pääteasema: ${dest}, Saapuu: ${arrTime}, `);
             liElement.appendChild(text);
@@ -54,12 +41,7 @@ $('#buttonForSearch').on('click', function () {
     });
     console.log("ButtonForSearch clicked");
 
-
-
-
-}
-
-);
+});
 
 
 
