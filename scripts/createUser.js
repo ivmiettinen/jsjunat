@@ -13,7 +13,7 @@ $(function(){
                 .attr('id', 'field1');
     $('<p></p>')
                 .appendTo('#field1')   
-                .text('User Credentials')
+                .text('')
                 .attr('id', 'creds');
     $('<div></div>')
                 .attr('id', 'user-div')
@@ -21,7 +21,7 @@ $(function(){
     $('<label></label>')
                 .appendTo('#user-div')
                 .attr('for', 'username')
-                .text('Username')
+                .text('Käyttäjä')
                 .attr('id', 'user-label');
     $('<input />')
                 .appendTo('#user-div')
@@ -38,7 +38,7 @@ $(function(){
     $('<label></label>')
                 .appendTo('#pass-div')
                 .attr('for', 'password')
-                .text('Password')
+                .text('Salasana')
                 .attr('id', 'pass-label');
     $('<input />')
                 .appendTo('#pass-div')
@@ -54,7 +54,7 @@ $(function(){
                 .attr('id', 'field2');
     $('<p></p>')
                 .appendTo('#field2')
-                .text('Login Type')
+                .text('')
                 .attr('id', 'ltype');
     $('<span></span>')
                 .appendTo('#field2')
@@ -69,7 +69,7 @@ $(function(){
     $('<label></label>')
                 .appendTo('#reg-span')
                 .attr('for', 'register')
-                .text('Register');
+                .text('Rekisteröidy');
     $('<span></span>')
             .appendTo('#field2')
             .insertAfter('#reg-span')
@@ -83,16 +83,18 @@ $(function(){
     $('<label></label>')
             .appendTo('#login-span')
             .attr('for', 'login')
-            .text('Login');
+            .text('Kirjaudu sisään');
     $('<input />')
             .appendTo('#login-input')
             .insertAfter('#field2')
             .attr('type', 'submit')
             .attr('id', 'submit-btn')
+            .attr('class', 'btn btn-info')
             .attr('value', 'Submit');
 
     $('<output></output>')
-            .insertAfter("#submit-btn")
+            .insertAfter('#submit-btn')
+            //.appendTo('.modal-footer')
             .attr('name', 'result');
 
   
