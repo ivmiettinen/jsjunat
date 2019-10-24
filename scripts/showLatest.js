@@ -14,7 +14,7 @@ $(function(){
                     .on('click', function(){
                         
                         var trainKeys = Object.keys(sessionStorage);
-                      
+                        $('#showTrainDiv').empty();
                         
                        console.log(trainKeys)
                       for(var i of trainKeys){
@@ -22,7 +22,7 @@ $(function(){
                         
                         console.log(trainDataShow)
                         if (trainDataShow == true) {
-                            $('#showTrainDiv').empty();
+    
                             continue;
                         } else {
                             
