@@ -25,23 +25,28 @@ function findOutTheClosestStation(lat, long) {
                 minimumDistance = distance;
                 closestStation = station;
 
-                
+
             }
-            
+
         }
         console.dir(closestStation);
         console.log(minimumDistance);
-        
-        
 
-        //Esitellään lähin juna-asema ja etäisyys sinne:
+
+
+        //Esitellään lähin juna-asema ja etäisyys sinne. Tuodaan tiedot HTML-puolelle:
         var yourClosestStation = closestStation.stationName;
-        var distanceToClosestStation = minimumDistance;
+        var distanceToClosestStation = minimumDistance.toFixed(2);
 
+
+        
+
+        document.getElementById("start").value = closestStation.stationName;
+       
 
         var pElement = document.createElement('p');
 
-        var text = document.createTextNode(`Sinun lähin juna-asemasi on:  ${yourClosestStation} . Etäisyytesi sinne on ${distanceToClosestStation} kilometriä. `);
+        var text = document.createTextNode(`Sinun lähin juna-asemasi on:  ${yourClosestStation} . Etäisyys sinne on ${distanceToClosestStation} kilometriä. `);
         pElement.appendChild(text);
         document.getElementById('nearestStation').appendChild(pElement);
 
@@ -71,27 +76,6 @@ function deg2rad(deg) {
 }
 
 
-
-
-
-//Geolokaatio koordinaatteina, painamalla:
-
-var x = document.getElementById("geolocation");
-
-
-function getLocation() {
-
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-
-function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude +
-        "<br>Longitude: " + position.coords.longitude;
-}
 
 
 
