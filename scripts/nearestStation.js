@@ -9,7 +9,7 @@ navigator.geolocation.getCurrentPosition(function (position) {
 });
 
 
-//Käyttäjää lähimpänä olevan aseman haku:  
+//Käyttäjän lähin olevan aseman haku:  
 
 
 
