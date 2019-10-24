@@ -1,6 +1,7 @@
 
 
 $(function(){
+    var printJuna = $('#showTrainDiv');
     $('<div></div>')
                 .appendTo('body')
                 .insertAfter('h1')
@@ -35,10 +36,15 @@ $(function(){
                         //console.log(i[0].details.start)
                         console.log(trainDataShow)
                         if (trainDataShow == true) {
+                            $('#showTrainDiv').empty();
                             continue;
                         } else {
-                            console.log("log 2"+ trainDataShow[0].details.start)
-                            $('#showTrainDiv')
+                            
+                            //console.log("log 2"+ trainDataShow[0].details.start)
+                            
+                            $('<p></p>')
+                                    .appendTo('#showTrainDiv')
+                                    .attr('class', 'showTrain')
                             .text(`${trainDataShow[0].details.start} -- ${trainDataShow[0].details.end}`);
                         }
                         
