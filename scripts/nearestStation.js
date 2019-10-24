@@ -46,7 +46,7 @@ function findOutTheClosestStation(lat, long) {
 
         var pElement = document.createElement('p');
 
-        var text = document.createTextNode(`Sinun lähin juna-asemasi on:  ${yourClosestStation}. Etäisyys sinne on ${distanceToClosestStation} kilometriä. `);
+        var text = document.createTextNode(`Lähin juna-asemasi on:  ${yourClosestStation}. Etäisyys sinne on ${distanceToClosestStation} kilometriä. `);
         pElement.appendChild(text);
         document.getElementById('nearestStation').appendChild(pElement);
 
