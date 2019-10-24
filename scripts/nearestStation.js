@@ -1,5 +1,5 @@
 
-//Käyttäjän geolokaatio: 
+//Geolocation:
 
 navigator.geolocation.getCurrentPosition(function (position) {
     console.log('Geolocation permissions granted');
@@ -9,7 +9,7 @@ navigator.geolocation.getCurrentPosition(function (position) {
 });
 
 
-//Käyttäjän lähin olevan aseman haku:  
+//Closest station:
 
 
 
@@ -55,7 +55,7 @@ function findOutTheClosestStation(lat, long) {
 
 
 
-//Funktio, joka laskee etäisyyden. Kaksi eri leveys- ja pituusastetta on verrattuna toisiinsa:
+//Function for calculating distance:
 
 function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
     var R = 6371; // Radius of the earth in km
