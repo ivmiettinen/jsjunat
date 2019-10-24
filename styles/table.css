@@ -3,7 +3,7 @@ body {
 }
 
 #searchDiv{
-    width: 50%;
+    width: 70%;
     margin-left: 10%;
     margin-bottom: 5%;
     background-color: whitesmoke;
@@ -11,6 +11,7 @@ body {
     border: solid 1px #adadad;
     border-radius: 5px;
     box-shadow: 3px 3px 3px #adadad;
+    position: relative;
 }
 
 header {
@@ -26,14 +27,29 @@ header {
     text-align: center;
 }
 
-#buttonForSearch {
+#loginBtn {
+    position:absolute;
+     top:0;
+     right:0;
+     margin: 5px;
+}
+
+#showLatest {
+    position: absolute;
+  top: 8px;
+  right: 16px;
+     margin: 5px;
+}
+
+
+#buttonForSearch, #showButton {
     background-color: #eea29a;
     color: black;
-    border: solid 1px grey;
+    border: solid 1px #adadad;
+    border-radius: 4px;
     padding: 7px 20px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 13px;
     margin: 4px 2px;
     cursor: pointer;
@@ -54,6 +70,7 @@ input[type=text] {
     border-radius: 4px;
     box-sizing: border-box;
 }
+
 
 table {
     width: 80%;
@@ -84,8 +101,4 @@ tr:nth-child(even){
 table, th, td {
     text-align: center;
     padding: 15px;
-}
-
-#login-input {
-    
 }

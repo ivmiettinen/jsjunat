@@ -9,6 +9,3 @@ function staName(dep, dest, callback) {
     });
 }
 
-staName('Pihlajavesi');
-staName('Helsinki');
-staName('Kilo');

@@ -3,12 +3,12 @@
 $(function(){
     var printJuna = $('#showTrainDiv');
     $('<div></div>')
-                .appendTo('body')
-                .insertAfter('h1')
+                .appendTo('#showLatest')
+                // .insertAfter('#showButton')
                 .attr('id', 'showTrainDiv');
     $('<button></button>')
-                    .appendTo('body')
-                    .insertAfter('h1')
+                    .appendTo('#showLatest')
+                    .insertBefore('#showTrainDiv')
                     .text('Näytä Viimeisimmät')
                     .attr('id', 'showButton')
                     .on('click', function(){
