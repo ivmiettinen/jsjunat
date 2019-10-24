@@ -3,7 +3,14 @@ body {
 }
 
 #searchDiv{
+    width: 50%;
     margin-left: 10%;
+    margin-bottom: 5%;
+    background-color: whitesmoke;
+    padding: 10px;
+    border: solid 1px #adadad;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px #adadad;
 }
 
 header {
@@ -17,6 +24,26 @@ header {
 
 #twoStations {
     text-align: center;
+}
+
+#buttonForSearch {
+    background-color: #eea29a;
+    color: black;
+    border: solid 1px grey;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    box-shadow: 3px 3px 3px #adadad;
+}
+
+#buttonForSearch:hover {
+    background-color: #c94c4c;
+    color: white;
 }
 
 input[type=text] {
@@ -35,6 +62,7 @@ table {
     border-collapse: collapse;
     border: 1px solid darkgray;
     margin-bottom: 5%;
+    background-color: white;
 }
 
 thead {
@@ -50,7 +78,6 @@ tr:nth-child(even){
 }
 
 #schedule tr:hover {
-    
     background-color: #deeaee;
 }
   
