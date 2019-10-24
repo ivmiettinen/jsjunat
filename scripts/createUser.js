@@ -1,10 +1,13 @@
 //create Login-Form
 $(function(){
+    $('<div></div>')
+                .appendTo('.modal-body')
+                .attr('id', 'form-div')
+                .attr('class', 'container');
     $('<form></form>')
-                .appendTo('body')
+                .appendTo('#form-div')
                 .attr('id','login-input')
                 .attr('action', 'submit');
-
     $('<fieldset></fieldset>')
                 .appendTo('#login-input')
                 .attr('id', 'field1');
