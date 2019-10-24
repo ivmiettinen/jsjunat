@@ -17,25 +17,38 @@
 
     <h1>Junan haku kahdella asemalla</h1>
 
-    <div>
-        <p>Mistä: <input type="text" placeholder="Syötä lähtöasema" id="start" /></p>
-        <br>
-        <p>Mihin: <input type="text" placeholder="Syötä pääteasema" id="end" /></p>
+    <p id='nearestStation'></p>
 
-        <p><button id="buttonForSearch" type="button">Hae</button></p>
+    <br>
+    
+
+    <div>
+        <p>Mistä: <input type="text" placeholder="Syötä lähtöasema" value="Helsinki" id="start" /></p>
+      
+        <p>Mihin: <input type="text" placeholder="Syötä pääteasema" value="Lahti" id="end" /></p>
+
+      
+
+        <p><button id="buttonForSearch" type="button">Hae junaa</button></p>
+
+        <br>
+
         <ol id='nextTrains'></ol>
+        
 
     </div>
 
 
-   <p></p>
-   
-   <button onclick="getLocation()">Sijaintisi koordinaatteina</button>
-   <div id="geolocation"></div>
   
+   
+   <!--<button onclick="getLocation()">Näytä sijaintisi koordinaatteina</button>-->
+
  
 
-
+   <div id="geolocation"></div>
+  
+  
+   
     
        
     <script src="../scripts/get.js"></script>
