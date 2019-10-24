@@ -94,7 +94,7 @@ $(function(){
 
   
        
-           
+    //form functionality and validation       
 })
 $(function(){
     formFunction();
@@ -131,7 +131,7 @@ $(function(){
           })
            const registeredUser = user.details.username;
           const registeredPassword = user.details.password;
-          console.dir(user);
+          //console.dir(user);
           const validUser = user.details.username == registeredUser;
           const validPassword = password == registeredPassword;
           if(validUser && validPassword){return `Tervetuloa takaisin ${username} !`;}
