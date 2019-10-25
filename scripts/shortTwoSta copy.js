@@ -20,10 +20,9 @@ $('#buttonForSearch').on('click', function () {
     var trueDestSta;
     var depSta;
     var destSta;
-    while (scheduleTable.lastChild) {
-        scheduleTable.removeChild(scheduleTable.lastChild);
-    }
-    staName(departure, arrival, function (staArr) {
+
+    $.ajax({
+        url: staName(departure, arrival, function (staArr) {
             for (i = 0; i < staArr.length; i++) {
                 if ((departure === staArr[i].stationName || departure == staArr[i].stationName.match(/^\S*/g)) && staArr[i].passengerTraffic === true) {
                     console.log(staArr[i].stationName);
@@ -46,9 +45,8 @@ $('#buttonForSearch').on('click', function () {
                     result.innerText = ('Virhe! Haettua asemaa ei löytynyt.');
                 }
             }
-            getJunaData();
-        })
-        function getJunaData(){
+        }),
+        success: function () {
             junaData(depSta, destSta, function (nextTrainsArr) {
 
                 trainCounter++;
@@ -126,9 +124,12 @@ $('#buttonForSearch').on('click', function () {
                 console.log(nextTrainsArr);
 
             });
-        }
+            while (scheduleTable.lastChild) {
+                scheduleTable.removeChild(scheduleTable.lastChild);
+            }
 
-    
+        }
+    })
 
     console.log("ButtonForSearch klik");
 });
